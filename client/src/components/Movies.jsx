@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Movie() {
+function Movies() {
   return (
     <div>Movie</div>
   )
 }
 
-export default Movie
+export default Movies
