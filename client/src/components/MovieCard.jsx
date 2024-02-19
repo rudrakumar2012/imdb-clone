@@ -3,7 +3,7 @@ import React from "react";
 function MovieCard({poster_path, title}) {
   return (
     <div
-      className="flex flex-col h-[40vh] w-[200px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer m-3"
+      className="flex flex-col h-[45vh] w-[250px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer m-3"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path})`,
       }}
