@@ -1,6 +1,6 @@
 import React from "react";
 
-function Watchlist() {
+function Watchlist({ watchlist }) {
   return (
     <>
       <div className="flex justify-center flex-wrap m-4">
@@ -10,7 +10,6 @@ function Watchlist() {
         <div className="flex justify-center items-center h-[3rem] w-[9rem] bg-gray-300 rounded-xl text-white font-bold">
           Action
         </div>
-        
       </div>
 
       <div className="flex justify-center my-4">
@@ -31,20 +30,24 @@ function Watchlist() {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b-2">
-              <td className="flex items-center px-5 py-5">
-                <img
-                  className="h-[6rem] 2-[10rem]"
-                  src={`https://rukminim2.flixcart.com/image/850/1000/l3bx5e80/poster/p/x/m/small-kgf-poster-kgf-yash-movie-poster-for-room-kgf-chapter-2-original-imageh8qchumcz8k.jpeg?q=20&crop=false`}
-                  alt=""
-                />
-                <div className="mx-10">KGF</div>
-              </td>
-              <td>8.5</td>
-              <td>9</td>
-              <td>Action</td>
-              <td className="text-red-800 font-bold">Delete</td>
-            </tr>
+            {watchlist.map((movieObj) => {
+              return (
+                <tr key={movieObj.id} className="border-b-2">
+                  <td className="flex items-center px-5 py-5">
+                    <img
+                      className="h-[6rem] 2-[10rem]"
+                      src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movieObj.poster_path}`}
+                      alt=""
+                    />
+                    <div className="mx-10">{movieObj.title}</div>
+                  </td>
+                  <td>{movieObj.vote_average}</td>
+                  <td>{movieObj.popularity}</td>
+                  <td>Action</td>
+                  <td className="text-red-800 font-bold">Delete</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
