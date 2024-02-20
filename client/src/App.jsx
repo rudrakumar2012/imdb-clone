@@ -9,11 +9,18 @@ import { useState } from "react";
 function App() {
   const [watchlist, setWatchList] = useState([]);
 
-  const handleAddtoWatchlist = (movieObj)=>{
-    const newWatchlist = [...watchlist, movieObj]
-    setWatchList(newWatchlist)
-    console.log(newWatchlist)
-  }
+  const handleAddtoWatchlist = (movieObj) => {
+    const newWatchlist = [...watchlist, movieObj];
+    setWatchList(newWatchlist);
+    console.log(newWatchlist);
+  };
+
+  const handleRemoveFromWatchlist = (movieObj) => {
+    const filteredWatchlist = watchlist.filter((movie) => {
+      return movie.id != movieObj.id;
+    });
+    setWatchList(filteredWatchlist);
+  };
 
   return (
     <>
@@ -24,7 +31,12 @@ function App() {
             path="/"
             element={
               <>
-                <Banner /> <Movies handleAddtoWatchlist={handleAddtoWatchlist} />
+                <Banner />{" "}
+                <Movies
+                  watchlist={watchlist}
+                  handleAddtoWatchlist={handleAddtoWatchlist}
+                  handleRemoveFromWatchlist={handleRemoveFromWatchlist}
+                />
               </>
             }
           />
@@ -33,7 +45,6 @@ function App() {
             element={
               <>
                 <Watchlist />
-          
               </>
             }
           />
