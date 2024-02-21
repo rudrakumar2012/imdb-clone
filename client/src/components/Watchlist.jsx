@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import genreids from "../utility/genre";
 
-function Watchlist({ watchlist, setWatchList }) {
+function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
   const [search, setSearch] = useState("");
   const [genreList, setGenreList] = useState(["All Genre"]);
   const [currGenre, setCurrGenre] = useState("All Genre");
@@ -112,7 +112,7 @@ function Watchlist({ watchlist, setWatchList }) {
                     <td>{movieObj.vote_average}</td>
                     <td>{movieObj.popularity}</td>
                     <td>{genreids[movieObj.genre_ids[0]]}</td>
-                    <td className="text-red-800 font-bold">Delete</td>
+                    <td onClick={()=>handleRemoveFromWatchlist(movieObj)} className="text-red-800 font-bold">Delete</td>
                   </tr>
                 );
               })}

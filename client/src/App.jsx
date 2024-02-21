@@ -11,7 +11,7 @@ function App() {
 
   const handleAddtoWatchlist = (movieObj) => {
     const newWatchlist = [...watchlist, movieObj];
-    localStorage.setItem('moviesApp', JSON.stringify(newWatchlist))
+    localStorage.setItem("moviesApp", JSON.stringify(newWatchlist));
     setWatchList(newWatchlist);
     console.log(newWatchlist);
   };
@@ -20,16 +20,17 @@ function App() {
     const filteredWatchlist = watchlist.filter((movie) => {
       return movie.id != movieObj.id;
     });
+    localStorage.setItem("moviesApp", JSON.stringify(filteredWatchlist))
     setWatchList(filteredWatchlist);
   };
 
-  useEffect(()=>{
-    const moviesFromLocalStorage = localStorage.getItem('moviesApp')
-    if(!moviesFromLocalStorage){
-      return
+  useEffect(() => {
+    const moviesFromLocalStorage = localStorage.getItem("moviesApp");
+    if (!moviesFromLocalStorage) {
+      return;
     }
-    setWatchList(JSON.parse(moviesFromLocalStorage))
-  },[])
+    setWatchList(JSON.parse(moviesFromLocalStorage));
+  }, []);
 
   return (
     <>
@@ -53,7 +54,11 @@ function App() {
             path="/watchlist"
             element={
               <>
-                <Watchlist watchlist={watchlist} setWatchList={setWatchList}/>
+                <Watchlist
+                  watchlist={watchlist}
+                  handleRemoveFromWatchlist={handleRemoveFromWatchlist}
+                  setWatchList={setWatchList}
+                />
               </>
             }
           />
