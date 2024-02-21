@@ -42,8 +42,8 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
               onClick={() => handleFilter(genre)}
               className={
                 currGenre == genre
-                  ? "flex justify-center items-center h-[3rem] w-[9rem] bg-blue-400 rounded-xl text-white font-bold mx-4"
-                  : "flex justify-center items-center h-[3rem] w-[9rem] bg-gray-300 rounded-xl text-white font-bold mx-4"
+                  ? "flex justify-center items-center h-[3rem] w-[9rem] bg-blue-400 rounded-xl text-white font-bold mx-4 cursor-pointer"
+                  : "flex justify-center items-center h-[3rem] w-[9rem] bg-gray-300 rounded-xl text-white font-bold mx-4 cursor-pointer"
               }
             >
               {genre}
@@ -69,14 +69,14 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
                 <div className="p-2">
                   <i
                     onClick={sortIncreasing}
-                    className="fa-solid fa-arrow-up"
+                    className="fa-solid fa-arrow-up cursor-pointer"
                   ></i>
                 </div>
                 <th className="p-2">Ratings</th>
                 <div className="p-2">
                   <i
                     onClick={sortDecreasing}
-                    className="fa-solid fa-arrow-down"
+                    className="fa-solid fa-arrow-down cursor-pointer"
                   ></i>
                 </div>
               </div>
@@ -112,7 +112,7 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
                     <td>{movieObj.vote_average}</td>
                     <td>{movieObj.popularity}</td>
                     <td>{genreids[movieObj.genre_ids[0]]}</td>
-                    <td onClick={()=>handleRemoveFromWatchlist(movieObj)} className="text-red-800 font-bold">Delete</td>
+                    <td onClick={()=>handleRemoveFromWatchlist(movieObj)} className="text-red-800 bg-red-100 font-bold cursor-pointer">Delete</td>
                   </tr>
                 );
               })}
