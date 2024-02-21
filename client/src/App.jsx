@@ -13,7 +13,6 @@ function App() {
     const newWatchlist = [...watchlist, movieObj];
     localStorage.setItem("moviesApp", JSON.stringify(newWatchlist));
     setWatchList(newWatchlist);
-    console.log(newWatchlist);
   };
 
   const handleRemoveFromWatchlist = (movieObj) => {
