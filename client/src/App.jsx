@@ -53,7 +53,7 @@ function App() {
             path="/watchlist"
             element={
               <>
-                <Watchlist watchlist={watchlist}/>
+                <Watchlist watchlist={watchlist} setWatchList={setWatchList}/>
               </>
             }
           />
