@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [watchlist, setWatchList] = useState([]);
-
   const handleAddtoWatchlist = (movieObj) => {
     const newWatchlist = [...watchlist, movieObj];
     localStorage.setItem("moviesApp", JSON.stringify(newWatchlist));
@@ -19,7 +18,7 @@ function App() {
     const filteredWatchlist = watchlist.filter((movie) => {
       return movie.id != movieObj.id;
     });
-    localStorage.setItem("moviesApp", JSON.stringify(filteredWatchlist))
+    localStorage.setItem("moviesApp", JSON.stringify(filteredWatchlist));
     setWatchList(filteredWatchlist);
   };
 

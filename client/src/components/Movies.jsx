@@ -3,9 +3,14 @@ import MovieCard from "./MovieCard";
 import axios from "axios";
 import Pagination from "./Pagination";
 
-function Movies({handleAddtoWatchlist, handleRemoveFromWatchlist, watchlist}) {
+function Movies({
+  handleAddtoWatchlist,
+  handleRemoveFromWatchlist,
+  watchlist,
+}) {
   const [movies, setMovies] = useState([]);
   const [pageNo, setPageNo] = useState(1);
+  const apiKey = import.meta.env.VITE_REACT_MOVIE_API_KEY;
 
   const handlePrev = () => {
     if (pageNo === 1) {
@@ -22,7 +27,7 @@ function Movies({handleAddtoWatchlist, handleRemoveFromWatchlist, watchlist}) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=3207f49736140b7646c60c12e20d14ed&language=en-US&page=${pageNo}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${pageNo}`
       )
       .then((res) => {
         setMovies(res.data.results);

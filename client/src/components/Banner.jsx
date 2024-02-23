@@ -4,12 +4,13 @@ import axios from "axios"; // Make sure to import axios
 function Banner() {
   const [bannerImageUrl, setBannerImageUrl] = useState("");
   const [bannerTitle, setBannerTitle] = useState("");
+  const apiKey = import.meta.env.VITE_REACT_MOVIE_API_KEY;
 
   useEffect(() => {
     const fetchRandomMovie = async () => {
       try {
         const response = await axios.get(
-          "https://api.themoviedb.org/3/movie/popular?api_key=3207f49736140b7646c60c12e20d14ed&language=en-US"
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US`
         );
         const randomMovie =
           response.data.results[
