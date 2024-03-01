@@ -19,7 +19,7 @@ function MovieCard({
 
   return (
     <div
-      className="relative flex flex-col h-[45vh] w-[250px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer m-3"
+      className="relative flex flex-col h-[40vh] md:h-[35vh] w-3/4 md:w-[200px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer mx-auto"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path})`,
       }}

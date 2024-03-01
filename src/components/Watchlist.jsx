@@ -34,22 +34,24 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
 
   return (
     <>
-      <div className="flex justify-center flex-wrap m-4">
-        {genreList.map((genre, index) => {
-          return (
-            <div
-              key={index}
-              onClick={() => handleFilter(genre)}
-              className={
-                currGenre == genre
-                  ? "flex justify-center items-center h-[3rem] w-[9rem] bg-blue-400 rounded-xl text-white font-bold mx-4 cursor-pointer"
-                  : "flex justify-center items-center h-[3rem] w-[9rem] bg-gray-300 rounded-xl text-white font-bold mx-4 cursor-pointer"
-              }
-            >
-              {genre}
-            </div>
-          );
-        })}
+      <div className="flex flex-col md:flex-row justify-center my-4">
+        <div className="flex justify-center md:justify-start w-full md:w-auto">
+          {genreList.map((genre, index) => {
+            return (
+              <div
+                key={index}
+                onClick={() => handleFilter(genre)}
+                className={`m-2 p-2 rounded-lg ${
+                  currGenre == genre
+                    ? "flex justify-center items-center h-[3rem] w-[9rem] bg-blue-400 rounded-xl text-white font-bold mx-4 cursor-pointer"
+                    : "flex justify-center items-center h-[3rem] w-[9rem] bg-gray-300 rounded-xl text-white font-bold mx-4 cursor-pointer"
+                } md:m-4 md:p-4 md:rounded-lg md:flex md:justify-center md:items-center`}
+              >
+                {genre}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="flex justify-center my-4">
@@ -65,23 +67,10 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
           <thead className="border-b-2">
             <tr>
               <th>Name</th>
-              <div className="flex justify-center">
-                <div className="p-2">
-                  <i
-                    onClick={sortIncreasing}
-                    className="fa-solid fa-arrow-up cursor-pointer"
-                  ></i>
-                </div>
-                <th className="p-2">Ratings</th>
-                <div className="p-2">
-                  <i
-                    onClick={sortDecreasing}
-                    className="fa-solid fa-arrow-down cursor-pointer"
-                  ></i>
-                </div>
-              </div>
-              <th>Popularity</th>
-              <th>Genre</th>
+              <th className="hidden sm:table-cell">Ratings</th>
+              <th className="hidden sm:table-cell">Popularity</th>
+              <th className="hidden sm:table-cell">Genre</th>
+              <th className="hidden sm:table-cell">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -103,16 +92,27 @@ function Watchlist({ watchlist, setWatchList, handleRemoveFromWatchlist }) {
                   <tr key={movieObj.id} className="border-b-2">
                     <td className="flex items-center px-5 py-5">
                       <img
-                        className="h-[6rem] 2-[10rem]"
+                        className="h-[6rem] w-auto"
                         src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movieObj.poster_path}`}
                         alt=""
                       />
                       <div className="mx-10">{movieObj.title}</div>
                     </td>
-                    <td>{movieObj.vote_average}</td>
-                    <td>{movieObj.popularity}</td>
-                    <td>{genreids[movieObj.genre_ids[0]]}</td>
-                    <td onClick={()=>handleRemoveFromWatchlist(movieObj)} className="text-red-800 bg-red-100 font-bold cursor-pointer">Delete</td>
+                    <td className="hidden sm:table-cell">
+                      {movieObj.vote_average}
+                    </td>
+                    <td className="hidden sm:table-cell">
+                      {movieObj.popularity}
+                    </td>
+                    <td className="hidden sm:table-cell">
+                      {genreids[movieObj.genre_ids[0]]}
+                    </td>
+                    <td
+                      onClick={() => handleRemoveFromWatchlist(movieObj)}
+                      className="text-red-800 bg-red-100 font-bold cursor-pointer hidden sm:table-cell"
+                    >
+                      Delete
+                    </td>
                   </tr>
                 );
               })}

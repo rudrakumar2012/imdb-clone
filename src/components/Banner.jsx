@@ -30,16 +30,12 @@ function Banner() {
 
   return (
     <div
-      className="banner"
+    className="banner h-[50vh] md:h-[60vh] lg:h-[90vh] bg-center bg-cover flex flex-col justify-end"
       style={{
         backgroundImage: `url(${bannerImageUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        width: "100%", // Ensure the banner takes up the full width
-        height: "100vh", // Adjust the height as needed
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: "center",
+        width: "100%",
         boxSizing: "border-box",
       }}
     >

@@ -37,7 +37,7 @@ function Movies({
   return (
     <div className="p-3 m-3">
       <div className="text-2xl font-bold text-center mb-4">Trending Movies</div>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {movies.map((movieObj) => {
           return (
             <MovieCard
