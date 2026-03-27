@@ -10,6 +10,9 @@ A sophisticated movie discovery platform built with Next.js 16, featuring curate
 - **Top Rated Collection**: Explore critically acclaimed masterpieces
 - **Movie Details**: In-depth movie information with high-quality imagery
 - **Personal Watchlist**: Save movies to your personal watchlist (session-based)
+  - Search and filter your watchlist by title
+  - Sort by: Recently Added, Oldest First, Title (A-Z/Z-A)
+- **Search**: Full-text movie search across TMDB database
 - **Editorial Curation**: Featured spotlights and philosophical content
 - **Responsive Design**: Optimized for all devices with Tailwind CSS
 - **Server-Side Rendering**: Fast page loads with Next.js App Router
@@ -86,8 +89,9 @@ This project is configured for deployment on Netlify with continuous deployment 
 ### Netlify Build Configuration
 
 - **Build command**: `npm run build`
-- **Publish directory**: `.next/standalone`
+- **Publish directory**: `.next`
 - **Node.js version**: 24.x
+- **Plugin**: `@netlify/plugin-nextjs` (automatically detected from netlify.toml)
 
 The `netlify.toml` file contains all necessary build settings. Environment variables must be configured in the Netlify dashboard.
 
@@ -104,26 +108,32 @@ The `netlify.toml` file contains all necessary build settings. Environment varia
 
 ```
 src/
-├── app/                    # App Router pages
-│   ├── about/page.tsx     # About page
-│   ├── editorial/page.tsx # Editorial content
-│   ├── layout.tsx         # Root layout
-│   ├── movie/[id]/page.tsx # Movie details
-│   ├── page.tsx           # Homepage
-│   └── watchlist/page.tsx # User watchlist
-├── actions/               # Server actions
-│   └── watchlist.ts       # Watchlist CRUD operations
-├── components/            # React components
-│   ├── ui/                # Reusable UI components
+├── app/                          # App Router pages
+│   ├── about/page.tsx           # About page
+│   ├── editorial/page.tsx       # Editorial content
+│   ├── layout.tsx               # Root layout
+│   ├── movie/[id]/page.tsx      # Movie details
+│   ├── page.tsx                 # Homepage
+│   ├── search/page.tsx          # Search results page
+│   └── watchlist/
+│       ├── page.tsx             # Server component (fetches data)
+│       └── WatchlistPageClient.tsx # Client component (filters/sorts)
+├── actions/                     # Server actions
+│   └── watchlist.ts             # Watchlist CRUD operations
+├── components/                  # React components
+│   ├── ui/                      # Reusable UI components
+│   │   ├── focus-cards.tsx
+│   │   ├── hero-parallax.tsx
+│   │   └── text-reveal.tsx
 │   ├── EditorialSections.tsx
 │   ├── FocusCardsContainer.tsx
 │   ├── Footer.tsx
 │   └── Navbar.tsx
-└── lib/                   # Utilities & configs
-    ├── db.ts              # Database connection
-    ├── schema.ts          # Drizzle schema
-    ├── tmdb.ts            # TMDB API functions
-    └── utils.ts           # Helper functions
+└── lib/                         # Utilities & configs
+    ├── db.ts                   # Database connection
+    ├── schema.ts               # Drizzle schema
+    ├── tmdb.ts                 # TMDB API functions
+    └── utils.ts                # Helper functions
 ```
 
 ## Scripts
