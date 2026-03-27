@@ -82,3 +82,22 @@ export async function getMoviesByIds(ids: number[]): Promise<Movie[]> {
     return [];
   }
 }
+
+export async function getSearchResults(query: string): Promise<Movie[]> {
+  try {
+    // Use multi-search API to search movies only
+    const res = await fetch(
+      `${BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${encodeURIComponent(query)}&page=1`,
+      {
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(5000),
+      }
+    );
+    if (!res.ok) throw new Error("Failed to search movies");
+    const data = await res.json();
+    return data.results || [];
+  } catch (error) {
+    console.warn("Search failed.", error);
+    return [];
+  }
+}

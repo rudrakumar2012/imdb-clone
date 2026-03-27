@@ -20,7 +20,11 @@
       "WebSearch",
       "Bash(next build:*)",
       "Bash(tee build-output.log)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(grep -E \"app/page$|app/about$|app/watchlist$\")",
+      "Bash(pkill -f \"node.*server.js\")",
+      "Bash(gh api:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

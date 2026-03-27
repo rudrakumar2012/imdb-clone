@@ -2,12 +2,9 @@
 import { FocusCards } from "./ui/focus-cards";
 import { useState } from "react";
 import { addToWatchlist, removeFromWatchlist } from "../actions/watchlist";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export function FocusCardsContainer({ cards, initialFavorites }: { cards: any[], initialFavorites: number[] }) {
   const [favorites, setFavorites] = useState(new Set(initialFavorites));
-  const router = useRouter();
 
   const handleToggle = async (movie: any, isFav: boolean) => {
     // Optimistic UI update
@@ -23,17 +20,11 @@ export function FocusCardsContainer({ cards, initialFavorites }: { cards: any[],
     }
   };
 
-  // We map the cards to include link wrapping so they can be navigated
-  const linkedCards = cards.map(c => ({
-    ...c,
-    // Add custom clicking to redirect the parent
-  }));
-
   return (
-    <FocusCards 
-      cards={cards} 
-      initialFavorites={favorites} 
-      onToggleFavorite={handleToggle} 
+    <FocusCards
+      cards={cards}
+      initialFavorites={favorites}
+      onToggleFavorite={handleToggle}
     />
   );
 }
