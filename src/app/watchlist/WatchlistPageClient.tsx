@@ -2,9 +2,17 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { FocusCardsContainer } from "../../components/FocusCardsContainer";
-import { Search, SortAsc } from "lucide-react";
+import { Dropdown } from "../../components/ui/dropdown";
+import { Search } from "lucide-react";
 
 type SortOption = "newest" | "oldest" | "title-asc" | "title-desc";
+
+const sortOptions = [
+  { value: "newest", label: "Recently Added" },
+  { value: "oldest", label: "Oldest First" },
+  { value: "title-asc", label: "Title A-Z" },
+  { value: "title-desc", label: "Title Z-A" },
+];
 
 interface WatchlistPageClientProps {
   initialCards: any[];
@@ -67,17 +75,11 @@ export function WatchlistPageClient({ initialCards }: WatchlistPageClientProps) 
 
           {/* Sort */}
           <div className="flex items-center gap-2">
-            <SortAsc size={20} className="text-neutral-400" />
-            <select
+            <Dropdown
+              options={sortOptions}
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-[#F5C518] transition cursor-pointer"
-            >
-              <option value="newest">Recently Added</option>
-              <option value="oldest">Oldest First</option>
-              <option value="title-asc">Title A-Z</option>
-              <option value="title-desc">Title Z-A</option>
-            </select>
+              onChange={(value) => setSortBy(value as SortOption)}
+            />
           </div>
         </div>
 
