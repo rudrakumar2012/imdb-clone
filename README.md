@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CineSage - Premium Movie Discovery
+
+Live Demo: [https://imdb-clone-99.netlify.app/](https://imdb-clone-99.netlify.app/)
+
+A sophisticated movie discovery platform built with Next.js 16, featuring curated content from TMDB with an emphasis on quality curation and user watchlists.
+
+## Features
+
+- **Trending Discovery**: Browse currently trending movies globally
+- **Top Rated Collection**: Explore critically acclaimed masterpieces
+- **Movie Details**: In-depth movie information with high-quality imagery
+- **Personal Watchlist**: Save movies to your personal watchlist (session-based)
+- **Editorial Curation**: Featured spotlights and philosophical content
+- **Responsive Design**: Optimized for all devices with Tailwind CSS
+- **Server-Side Rendering**: Fast page loads with Next.js App Router
+- **Static Site Generation**: Optimized caching with revalidation
+
+## Tech Stack
+
+- **Framework**: Next.js 16.2.1 (App Router)
+- **React**: 19.2.4
+- **Styling**: Tailwind CSS 4
+- **Database**: Neon Serverless PostgreSQL
+- **ORM**: Drizzle ORM 0.45
+- **API**: TMDB (The Movie Database)
+- **Language**: TypeScript 5
+- **Deployment**: Netlify
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 24+ installed
+- npm or yarn package manager
+
+### Local Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rudrakumar2012/imdb-clone.git
+   cd imdb-clone
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables (see `.env.local`):
+   ```bash
+   cp .env.local.example .env.local
+   # Edit .env.local with your API keys
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Database Setup
+
+The project uses Drizzle ORM with migrations stored in `drizzle.config.ts`. To push schema changes:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx drizzle-kit push:pg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file with the following:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+TMDB_API_KEY=your_tmdb_api_key_here
+DATABASE_URL=postgresql://username:password@host/db?sslmode=require
+```
 
-## Learn More
+- `TMDB_API_KEY`: Get from [TMDB](https://www.themoviedb.org/settings/api)
+- `DATABASE_URL`: Your Neon PostgreSQL connection string
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for deployment on Netlify with continuous deployment from GitHub.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Netlify Build Configuration
 
-## Deploy on Vercel
+- **Build command**: `npm run build`
+- **Publish directory**: `.next/standalone`
+- **Node.js version**: 24.x
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The `netlify.toml` file contains all necessary build settings. Environment variables must be configured in the Netlify dashboard.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Setting Up Environment on Netlify
+
+1. Go to your Netlify site dashboard
+2. Navigate to **Site settings → Build & deploy → Environment → Environment variables**
+3. Add:
+   - `TMDB_API_KEY` = your API key
+   - `DATABASE_URL` = your Neon database URL
+4. Trigger a new deploy
+
+## Project Structure
+
+```
+src/
+├── app/                    # App Router pages
+│   ├── about/page.tsx     # About page
+│   ├── editorial/page.tsx # Editorial content
+│   ├── layout.tsx         # Root layout
+│   ├── movie/[id]/page.tsx # Movie details
+│   ├── page.tsx           # Homepage
+│   └── watchlist/page.tsx # User watchlist
+├── actions/               # Server actions
+│   └── watchlist.ts       # Watchlist CRUD operations
+├── components/            # React components
+│   ├── ui/                # Reusable UI components
+│   ├── EditorialSections.tsx
+│   ├── FocusCardsContainer.tsx
+│   ├── Footer.tsx
+│   └── Navbar.tsx
+└── lib/                   # Utilities & configs
+    ├── db.ts              # Database connection
+    ├── schema.ts          # Drizzle schema
+    ├── tmdb.ts            # TMDB API functions
+    └── utils.ts           # Helper functions
+```
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT
+
+## Acknowledgments
+
+- [TMDB](https://www.themoviedb.org/) for their amazing movie database API
+- [Next.js](https://nextjs.org/) for the fantastic React framework
+- [Neon](https://neon.tech/) for serverless PostgreSQL
