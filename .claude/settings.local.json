@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(curl -s \"https://api.themoviedb.org/3/movie/157336?api_key=YOUR_KEY\")",
+      "Bash(curl -s \"https://api.themoviedb.org/3/movie/157336?api_key=cae1af0dc5f688b2d79c3e868acd5da1\")",
+      "Bash(curl -s \"https://api.themoviedb.org/3/movie/27205?api_key=cae1af0dc5f688b2d79c3e868acd5da1\")",
+      "Bash(curl -s \"https://api.themoviedb.org/3/movie/496243?api_key=cae1af0dc5f688b2d79c3e868acd5da1\")",
+      "Bash(curl -I \"https://image.tmdb.org/t/p/w500/oYuL6180zztS9fwGv9QI9IP9vIf.jpg\")",
+      "Bash(npm list:*)",
+      "Bash(curl -I \"https://image.tmdb.org/t/p/w200/oYuL6180zztS9fwGv9QI9IP9vIf.jpg\")",
+      "Bash(npm run:*)",
+      "Bash(curl -I \"https://image.tmdb.org/t/p/w500/gEU2QniE6E7oBvMvIU9z9z0mRoo.jpg\")",
+      "Bash(curl:*)",
+      "Bash(tar -czf test-build.tar.gz -C .next/standalone .)",
+      "Bash(tar -tzf test-build.tar.gz)",
+      "Bash(tar -czf /tmp/test-build.tar.gz -C .next/standalone .)",
+      "Bash(tar -tzf /tmp/test-build.tar.gz)",
+      "Bash(du -sh .next/standalone/*)",
+      "WebSearch",
+      "Bash(next build:*)",
+      "Bash(tee build-output.log)",
+      "Bash(npx next:*)"
+    ]
+  }
+}

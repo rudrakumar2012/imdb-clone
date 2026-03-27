@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --color-action-gold: #F5C518;
+  --color-true-black: #000000;
+}
+
+body {
+  background-color: var(--color-true-black);
+  color: white;
+  min-height: 100vh;
+}

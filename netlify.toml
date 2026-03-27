@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next/standalone"
+  functions = ".next/standalone/.netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[next]
+  edge_functions = false
