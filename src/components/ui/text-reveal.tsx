@@ -24,7 +24,7 @@ export const TextReveal = ({
     return (
       <div className={cn("relative z-0 py-20 md:py-40", className)}>
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <p className="flex flex-wrap p-5 md:p-8 lg:p-10 text-2xl md:text-3xl lg:text-5xl font-bold text-[#F5C518]">
+          <p className="flex flex-wrap p-5 md:p-8 lg:p-10 text-2xl md:text-3xl lg:text-5xl font-bold text-action-gold">
             {words.map((word, i) => (
               <span key={i} className="mx-1 lg:mx-2.5">{word}</span>
             ))}
@@ -66,7 +66,7 @@ const Word = ({
   return (
     <span className="relative mx-1 lg:mx-2.5">
       <span className="absolute opacity-0">{children}</span>
-      <motion.span style={{ opacity: opacity }} className="text-[#F5C518]">
+      <motion.span style={{ opacity: opacity }} className="text-action-gold">
         {children}
       </motion.span>
     </span>

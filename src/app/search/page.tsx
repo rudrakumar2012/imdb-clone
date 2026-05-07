@@ -18,7 +18,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <main className="min-h-screen bg-black pt-32 pb-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white border-l-4 border-[#F5C518] pl-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white border-l-4 border-action-gold pl-4">
           Search Results
         </h1>
 
@@ -27,7 +27,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {query && (
           <p className="text-neutral-400 text-lg mb-10">
-            Showing results for: <span className="text-[#F5C518]">&ldquo;{query}&rdquo;</span>
+            Showing results for: <span className="text-action-gold">&ldquo;{query}&rdquo;</span>
           </p>
         )}
 

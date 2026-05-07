@@ -13,7 +13,7 @@ export default async function EditorialPage() {
         
         {/* Editorial Header */}
         <header className="max-w-3xl flex flex-col gap-8">
-          <span className="text-[#F5C518] text-xs font-black uppercase tracking-[0.3em]">The Sage Papers</span>
+          <span className="text-action-gold text-xs font-black uppercase tracking-[0.3em]">The Sage Papers</span>
           <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9]">
             The Art of <br /> <span className="italic text-neutral-500">Perspective.</span>
           </h1>
@@ -25,7 +25,7 @@ export default async function EditorialPage() {
         {/* Feature Collection */}
         <section className="flex flex-col gap-12">
           <div className="flex flex-col gap-2">
-             <span className="text-[#F5C518] text-[10px] font-black uppercase tracking-widest">Collection 01</span>
+             <span className="text-action-gold text-[10px] font-black uppercase tracking-widest">Collection 01</span>
              <h2 className="text-3xl font-bold text-white tracking-tight">The Neon Noir Aesthetic</h2>
              <p className="text-neutral-500 max-w-xl">Exploring the intersection of high-tech and low-life through a saturated, high-contrast lens.</p>
           </div>

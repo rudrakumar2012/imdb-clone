@@ -7,9 +7,9 @@ export default function AboutPage() {
         
         {/* Manifesto Section */}
         <section className="flex flex-col gap-8">
-          <span className="text-[#F5C518] text-xs font-black uppercase tracking-[0.3em]">The Manifesto</span>
+          <span className="text-action-gold text-xs font-black uppercase tracking-[0.3em]">The Manifesto</span>
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">
-            Quality is a <br /> <span className="italic text-neutral-500 underline decoration-[#F5C518]/30 underline-offset-8">Moral Imperative.</span>
+            Quality is a <br /> <span className="italic text-neutral-500 underline decoration-action-gold/30 underline-offset-8">Moral Imperative.</span>
           </h1>
           <div className="flex flex-col gap-6 text-neutral-400 text-lg md:text-xl font-medium leading-relaxed">
             <p>
@@ -25,7 +25,7 @@ export default function AboutPage() {
 
         {/* Protocols Section */}
         <section id="protocols" className="flex flex-col gap-8">
-          <span className="text-[#F5C518] text-xs font-black uppercase tracking-[0.3em]">Security Protocols</span>
+          <span className="text-action-gold text-xs font-black uppercase tracking-[0.3em]">Security Protocols</span>
           <h2 className="text-3xl font-bold text-white tracking-tight">Your data is yours.</h2>
           <div className="flex flex-col gap-6 text-neutral-500 text-base md:text-lg font-medium leading-relaxed">
             <p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
 
         {/* FAQ Section */}
         <section id="inquiries" className="flex flex-col gap-12">
-          <span className="text-[#F5C518] text-xs font-black uppercase tracking-[0.3em]">Direct Inquiries</span>
+          <span className="text-action-gold text-xs font-black uppercase tracking-[0.3em]">Direct Inquiries</span>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-3">

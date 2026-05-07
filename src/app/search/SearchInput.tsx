@@ -24,7 +24,7 @@ export function SearchInput({ initialQuery }: { initialQuery: string }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search movies..."
-          className="w-full bg-white/5 border border-white/10 rounded-lg pl-12 pr-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-[#F5C518] transition"
+          className="w-full bg-white/5 border border-white/10 rounded-lg pl-12 pr-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-action-gold transition"
         />
       </div>
     </form>

@@ -42,7 +42,7 @@ export default async function MoviePage({ params }: { params: Promise<{ id: stri
              <p className="text-neutral-400 text-sm md:text-base italic mb-4">&ldquo;{tagline}&rdquo;</p>
            )}
            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 text-neutral-300 text-sm md:text-xl">
-             <span className="text-[#F5C518] bg-black/40 px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1.5">
+             <span className="text-action-gold bg-black/40 px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1.5">
                <IconStar size={16} className="md:hidden" />
                ★ {movie.vote_average.toFixed(1)}
              </span>

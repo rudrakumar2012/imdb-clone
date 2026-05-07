@@ -18,8 +18,8 @@ export default async function HomePage() {
     link: `/movie/${m.id}`
   }));
 
-  // Pick a random dynamic movie for the spotlight from the top 10 trending
-  const spotlightMovie = trending[Math.floor(Math.random() * Math.min(trending.length, 10))];
+  // Pick a deterministic spotlight movie (first trending) to avoid layout shift across requests
+  const spotlightMovie = trending[0];
 
   return (
     <main className="min-h-screen bg-black">
@@ -29,7 +29,7 @@ export default async function HomePage() {
 
       <div id="trending" className="py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8 mb-10 flex flex-col gap-2">
-          <span className="text-[#F5C518] text-[10px] font-black uppercase tracking-widest">Current Pulse</span>
+          <span className="text-action-gold text-[10px] font-black uppercase tracking-widest">Current Pulse</span>
           <h2 className="text-3xl font-bold text-white">Trending Discovery</h2>
           <p className="text-neutral-500 text-sm font-medium">The stories capturing the global imagination this week.</p>
         </div>
@@ -40,7 +40,7 @@ export default async function HomePage() {
 
       <div id="top-rated" className="py-20 bg-neutral-900/30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 mb-10 flex flex-col gap-2">
-          <span className="text-[#F5C518] text-[10px] font-black uppercase tracking-widest">Gold Standard</span>
+          <span className="text-action-gold text-[10px] font-black uppercase tracking-widest">Gold Standard</span>
           <h2 className="text-3xl font-bold text-white">Top Rated Series</h2>
           <p className="text-neutral-500 text-sm font-medium">Masterpieces as voted by the most rigorous critics.</p>
         </div>

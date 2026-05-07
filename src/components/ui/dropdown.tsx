@@ -43,8 +43,8 @@ export function Dropdown({ options, value, onChange, className }: DropdownProps)
           "bg-white/5 border border-white/10",
           "rounded-lg px-4 py-2.5 text-sm font-medium",
           "text-white",
-          "hover:bg-white/10 hover:border-[#F5C518]/50",
-          "focus:outline-none focus:border-[#F5C518] focus:ring-1 focus:ring-[#F5C518]",
+          "hover:bg-white/10 hover:border-action-gold/50",
+          "focus:outline-none focus:border-action-gold focus:ring-1 focus:ring-action-gold",
           "transition-all duration-200"
         )}
       >
@@ -65,7 +65,7 @@ export function Dropdown({ options, value, onChange, className }: DropdownProps)
             "bg-neutral-900/95 backdrop-blur-md border border-white/10",
             "rounded-lg shadow-xl shadow-black/50",
             "overflow-hidden",
-            "animate-in fade-in slide-in-from-top-1 duration-200"
+            "animate-[slideDown_0.15s_ease-out]"
           )}
         >
           {options.map((option) => (
@@ -80,7 +80,7 @@ export function Dropdown({ options, value, onChange, className }: DropdownProps)
                 "w-full px-4 py-2.5 text-left text-sm font-medium",
                 "text-neutral-300 hover:text-white hover:bg-white/10",
                 "transition-colors duration-150",
-                value === option.value && "bg-[#F5C518]/10 text-[#F5C518]"
+                value === option.value && "bg-action-gold/10 text-action-gold"
               )}
             >
               {option.label}

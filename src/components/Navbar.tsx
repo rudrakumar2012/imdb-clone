@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IconSearch, IconX, IconMenu2 } from "@tabler/icons-react";
 
 export function Navbar() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,7 +13,7 @@ export function Navbar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 
@@ -26,7 +28,7 @@ export function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold tracking-tighter text-white shrink-0">
-          Cine<span className="text-[#F5C518]">Sage</span>
+          Cine<span className="text-action-gold">Sage</span>
         </Link>
 
         {/* Desktop nav links */}
@@ -35,7 +37,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-white hover:text-[#F5C518] transition text-sm font-medium"
+              className="text-white hover:text-action-gold transition text-sm font-medium"
             >
               {link.label}
             </Link>
@@ -52,7 +54,7 @@ export function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search movies..."
                 autoFocus
-                className="bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white text-sm focus:outline-none focus:border-[#F5C518] w-40 sm:w-64"
+                className="bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white text-sm focus:outline-none focus:border-action-gold w-40 sm:w-64"
               />
               <button
                 type="button"
@@ -96,7 +98,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white hover:text-[#F5C518] transition text-sm font-medium py-3 border-b border-white/5 last:border-b-0"
+                className="text-white hover:text-action-gold transition text-sm font-medium py-3 border-b border-white/5 last:border-b-0"
               >
                 {link.label}
               </Link>

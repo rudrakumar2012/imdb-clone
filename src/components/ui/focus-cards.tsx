@@ -45,7 +45,7 @@ export const Card = React.memo(
             {card.title}
           </h3>
           <div className="flex gap-4 items-center mt-1 md:mt-2 text-xs md:text-sm lg:text-base font-medium text-neutral-300">
-             <span className="text-[#F5C518] font-bold">★ {card.vote_average?.toFixed(1)}</span>
+             <span className="text-action-gold font-bold">★ {card.vote_average?.toFixed(1)}</span>
              <span>•</span>
              <span>{card.release_date ? new Date(card.release_date).getFullYear() : 'N/A'}</span>
           </div>
@@ -54,7 +54,7 @@ export const Card = React.memo(
       {/* Favorite button: always accessible on mobile, hover-triggered on desktop */}
       <button
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); onToggleFavorite(); }}
-        className="absolute top-3 right-3 z-20 text-[#F5C518] hover:scale-110 transition md:opacity-0 md:group-hover/card:opacity-100"
+        className="absolute top-3 right-3 z-20 text-action-gold hover:scale-110 transition md:opacity-0 md:group-hover/card:opacity-100"
         aria-label={isFavorited ? "Remove from watchlist" : "Add to watchlist"}
       >
         {isFavorited ? <IconHeartFilled size={28} /> : <IconHeart size={28} />}

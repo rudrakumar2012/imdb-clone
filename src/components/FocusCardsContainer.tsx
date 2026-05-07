@@ -3,11 +3,15 @@ import { FocusCards } from "./ui/focus-cards";
 import { useState } from "react";
 import { addToWatchlist, removeFromWatchlist } from "../actions/watchlist";
 
-export function FocusCardsContainer({ cards, initialFavorites }: { cards: any[], initialFavorites: number[] }) {
+export function FocusCardsContainer({ cards, initialFavorites, onToggleFavorite }: { cards: any[], initialFavorites: number[], onToggleFavorite?: (movie: any, isFav: boolean) => Promise<void> | void }) {
   const [favorites, setFavorites] = useState(new Set(initialFavorites));
 
   const handleToggle = async (movie: any, isFav: boolean) => {
-    // Optimistic UI update
+    if (onToggleFavorite) {
+      await onToggleFavorite(movie, isFav);
+      return;
+    }
+
     const nextFavs = new Set(favorites);
     if (isFav) {
       nextFavs.delete(movie.id);
